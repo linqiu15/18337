@@ -27,3 +27,5 @@ function add_and_store!(c,a,b)  # function changes it's first argument
         c[i,j] = a[i,j]+b[i,j]
     end
 end
+
+@btime add_and_store!(c,a,b)

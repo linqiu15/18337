@@ -32,8 +32,10 @@ function inner_cols!(C,A,B)
   function inner_alloc!(C,A,B)
     
     for j in 1:100, i in 1:100
-      val = [A[i,j] + B[i,j]]  # this is a vector of length 1, but Julia doesn't know
-      C[i,j] = val[1]
+      # val = [A[i,j] + B[i,j]]  # this is a vector of length 1, but Julia doesn't know
+      # C[i,j] = val[1]
+        val=A[i,j]+B[i,j]  # This saves time.
+        C[i,j]=val
     end
   end
   @btime inner_alloc!(C,A,B)
